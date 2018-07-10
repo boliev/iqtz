@@ -9,8 +9,8 @@
 - docker
 - docker-compose
 - supervisor
-- https://github.com/php-amqplib/php-amqplib Для работы с РRabbitMq
-- https://github.com/moneyphp/money Для работы с деньгами по заветам Фаулера
+- https://github.com/php-amqplib/php-amqplib - для работы с РRabbitMq
+- https://github.com/moneyphp/money - для работы с деньгами по заветам Фаулера
  https://github.com/vishnubob/wait-for-it - для запуска скрипта, накатывающего тестовые данные (рекомендация в оф. документации докера)
  
 ## Файлы:
