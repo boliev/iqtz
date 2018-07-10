@@ -11,7 +11,7 @@ class AccountBalanceAdd extends AccountBalanceAbstract
     public function change(): bool
     {
         $task = $this->getTask();
-        if($this->accountBalanceBlocker->isBlocked($task['userId'])) {
+        if ($this->accountBalanceBlocker->isBlocked($task['userId'])) {
             return false;
         }
 

@@ -33,7 +33,7 @@ class AccountRepository
         $res = $this->database->prepare('SELECT user_id, amount FROM accounts WHERE user_id = :userId');
         $res->execute([':userId' => $id]);
         $data =  $res->fetch();
-        if(!$data) {
+        if (!$data) {
             throw new AccountNotFoundException('No such account');
         }
 

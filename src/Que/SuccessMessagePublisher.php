@@ -2,7 +2,6 @@
 
 namespace TZ\Que;
 
-
 use PhpAmqpLib\Channel\AMQPChannel;
 use PhpAmqpLib\Message\AMQPMessage;
 use TZ\DAO\Account;

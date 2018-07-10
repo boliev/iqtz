@@ -2,4 +2,6 @@
 
 namespace TZ\Exception;
 
-class CantProcessTaskException extends \Exception {}
+class CantProcessTaskException extends \Exception
+{
+}

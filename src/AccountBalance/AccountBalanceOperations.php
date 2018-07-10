@@ -5,7 +5,8 @@ use Money\Money;
 use TZ\DAO\Account;
 use TZ\Exception\NotEnoughMoneyException;
 
-class AccountBalanceOperations {
+class AccountBalanceOperations
+{
     /**
      * @param Account $account
      * @param Money $money

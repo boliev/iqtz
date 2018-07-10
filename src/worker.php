@@ -1,5 +1,6 @@
 <?php
 namespace TZ;
+
 require_once __DIR__ . '/../vendor/autoload.php';
 
 use PhpAmqpLib\Message\AMQPMessage;
@@ -16,7 +17,7 @@ $callback = function (AMQPMessage $msg) {
         $accountBalanceFactory = new AccountBalanceFactory();
         $accountBalance = $accountBalanceFactory->getAccountBalance($msg);
         $accountBalance->change();
-    } catch(\Exception $e) {
+    } catch (\Exception $e) {
         $errorMessagePublisherFactory = new ErrorMessagePublisherFactory();
         $errorMessagePublisher = $errorMessagePublisherFactory->getPublisher();
         $errorMessagePublisher->publish($e, $msg->getBody());

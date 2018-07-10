@@ -6,16 +6,18 @@ $sql = "CREATE TABLE public.accounts
 );";
 
 $dbh = new PDO(
-    sprintf('pgsql:dbname=%s;host=%s;user=%s;password=%s',
+    sprintf(
+        'pgsql:dbname=%s;host=%s;user=%s;password=%s',
         getenv('POSTGRES_DB'),
         getenv('POSTGRES_HOST'),
         getenv('POSTGRES_USER'),
         getenv('POSTGRES_PASSWORD')
-));
+)
+);
 
 $dbh->exec($sql);
 
 for ($i=0; $i<100; $i++) {
     $st = $dbh->prepare('INSERT INTO accounts (amount) VALUES (:amount)');
-    $st->execute([':amount' => rand(0,100000000)]);
+    $st->execute([':amount' => rand(0, 100000000)]);
 }

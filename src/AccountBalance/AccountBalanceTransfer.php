@@ -14,7 +14,7 @@ class AccountBalanceTransfer extends AccountBalanceAbstract
     public function change(): bool
     {
         $task = $this->getTask();
-        if($this->accountBalanceBlocker->isBlocked($task['fromUserId']) ||
+        if ($this->accountBalanceBlocker->isBlocked($task['fromUserId']) ||
             $this->accountBalanceBlocker->isBlocked($task['toUserId'])) {
             return false;
         }

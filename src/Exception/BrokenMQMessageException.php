@@ -2,4 +2,6 @@
 
 namespace TZ\Exception;
 
-class BrokenMQMessageException extends \Exception {}
+class BrokenMQMessageException extends \Exception
+{
+}

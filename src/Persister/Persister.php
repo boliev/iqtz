@@ -1,7 +1,6 @@
 <?php
 namespace TZ\Persister;
 
-
 class Persister
 {
     /**
@@ -28,6 +27,4 @@ class Persister
     {
         $this->database->exec('ROLLBACK;');
     }
-
-
 }

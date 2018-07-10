@@ -52,8 +52,7 @@ abstract class AccountBalanceAbstract implements AccountBalanceInterface
         MoneyTypeFactory $moneyTypeFactory,
         AccountPersister $accountPersister,
         SuccessMessagePublisher $successMessagePublisher
-    )
-    {
+    ) {
         $this->message = $message;
         $this->accountBalanceBlocker = $accountBalanceBlocker;
         $this->accountRepository = $accountRepository;

@@ -43,7 +43,7 @@ class AccountBalanceFactory
         $successChannel = $rabbitFactory->getChannel();
         $successPublisher = new SuccessMessagePublisher($successChannel);
 
-        if(isset($task['type']) && isset($task['userId']) && isset($task['amount']) && $task['type'] === 'add') {
+        if (isset($task['type']) && isset($task['userId']) && isset($task['amount']) && $task['type'] === 'add') {
             return new AccountBalanceAdd(
                 $message,
                 $accountBlocker,
@@ -53,7 +53,7 @@ class AccountBalanceFactory
                 $accountPersister,
                 $successPublisher
             );
-        } elseif(isset($task['type']) && isset($task['amount']) && $task['type'] === 'subtract') {
+        } elseif (isset($task['type']) && isset($task['amount']) && $task['type'] === 'subtract') {
             return new AccountBalanceSubtract(
                 $message,
                 $accountBlocker,
@@ -63,7 +63,7 @@ class AccountBalanceFactory
                 $accountPersister,
                 $successPublisher
             );
-        } elseif(isset($task['type']) && isset($task['amount']) && $task['type'] === 'transfer' && isset($task['fromUserId']) && isset($task['toUserId'])) {
+        } elseif (isset($task['type']) && isset($task['amount']) && $task['type'] === 'transfer' && isset($task['fromUserId']) && isset($task['toUserId'])) {
             return new AccountBalanceTransfer(
                 $message,
                 $accountBlocker,
