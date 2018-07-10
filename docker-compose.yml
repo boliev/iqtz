@@ -1,0 +1,49 @@
+version: '3'
+
+services:
+  db:
+    image: postgres:11
+    environment:
+        - POSTGRES_DB=iq_tz
+        - POSTGRES_USER=iq_tz
+        - POSTGRES_PASSWORD=iq_tz
+    ports:
+        - 5432:5432
+
+  mq:
+    image: rabbitmq:3.7.6-management
+    ports:
+        - 5672:5672
+        - 15672:15672
+
+  redis:
+    image: redis:4.0
+    ports:
+        - 6379:6379
+    environment:
+        - ALLOW_EMPTY_PASSWORD=yes
+  php:
+    build: .
+    volumes:
+      - .:/var/www
+      - ./docker/php/supervisor/conf.d/worker.conf:/etc/supervisor/conf.d/worker.conf
+    links:
+      - db
+      - mq
+      - redis
+    tty: true
+    environment:
+      - POSTGRES_HOST=db
+      - POSTGRES_DB=iq_tz
+      - POSTGRES_USER=iq_tz
+      - POSTGRES_PASSWORD=iq_tz
+      - REDIS_HOST=redis
+      - REDIS_PORT=6379
+      - RABBIT_HOST=mq
+      - RABBIT_PORT=5672
+      - RABBIT_USER=guest
+      - RABBIT_PASSWORD=guest
+      - RABBIT_EXCHANGE=user
+    depends_on:
+      - mq
+      - db
